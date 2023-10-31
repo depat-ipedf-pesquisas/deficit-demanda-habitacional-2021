@@ -20,14 +20,14 @@ Com os dados da Pesquisa Distrital por Amostra de Domicílios (PDAD 2021), ambos
 
 Para caracterização do subcomponente "Domicílios Improvisados", foi realizada verificação detalhada dos domicílios da amostra da PDAD 2021, apoiada por análises geoespaciais e visuais por meio do *Google Street View*, resultando na variável `B01_déficit` (disponível em: [https://www.ipe.df.gov.br/deficit-e-demanda-habitacional-do-distrito-federal-2021/](https://www.ipe.df.gov.br/deficit-e-demanda-habitacional-do-distrito-federal-2021/)).
 
-Para a caracterização dos domicílios rústicos, baseada no cruzamento das respostas "alvenaria sem revestimento" (variável B07=2) aliada à presença apenas de ^ (variável B08=1) ou ^ (variável B08=2) e "cobertura em telha de fibrocimento sem laje" (variável B09=4). Também foi realizada verificação detalhada dos domicílios da amostra da PDAD 2021, apoiada por análises geoespaciais e visuais por meio do *Google Street View*, resultando na variável `B07_atualizada` (disponível em: [https://www.ipe.df.gov.br/deficit-e-demanda-habitacional-do-distrito-federal-2021/](https://www.ipe.df.gov.br/deficit-e-demanda-habitacional-do-distrito-federal-2021/)).
+Para a caracterização dos domicílios rústicos, baseada no cruzamento das respostas "alvenaria sem revestimento" (variável B07=2) aliada à presença apenas de "contrapiso" (variável B08=1) ou "cimento alisado" (variável B08=2) e "cobertura em telha de fibrocimento sem laje" (variável B09=4). Também foi realizada verificação detalhada dos domicílios da amostra da PDAD 2021, apoiada por análises geoespaciais e visuais por meio do *Google Street View*, resultando na variável `B07_atualizada` (disponível em: [https://www.ipe.df.gov.br/deficit-e-demanda-habitacional-do-distrito-federal-2021/](https://www.ipe.df.gov.br/deficit-e-demanda-habitacional-do-distrito-federal-2021/))
 
 
 # Orientações e usos
 
-Neste projeto, estão disponibilizados os códigos --- em linguagem `R` --- utilizados para o cálculo do Déficit e Demanda Habitacional do DF, conforme dados da PDAD 2021.
+Neste projeto, estão disponibilizados os códigos - em linguagem `R` - utilizados para o cálculo do Déficit e Demanda Habitacional do DF, conforme dados da PDAD 2021.
 
-Neles, já estão organizados o acesso aos microdados da PDAD 2021 --- disponibilizados pelo IPEDF - Codeplan --- e a construção dos indicadores. Pequenos ajustes podem ser necessários para a utilização dos códigos, conforme a necessidade do usuário e o sistema operacional utilizado.
+Neles, já estão organizados o acesso aos microdados da PDAD 2021 - disponibilizados pelo IPEDF-Codeplan - e a construção dos indicadores. Pequenos ajustes podem ser necessários para a utilização dos códigos, conforme a necessidade do usuário e o sistema operacional utilizado.
 
 Os códigos permitem a reprodução dos principais resultados apresentados nos relatórios da pesquisa disponibilizados na página oficial do Instituto, dispnível [`aqui`](https://www.ipe.df.gov.br/deficit-e-demanda-habitacional-do-distrito-federal-2021/). No arquivo `renv.lock`, está a lista dos pacotes utilizados, visando garantir a estabilidade de reprodução dos códigos.
 
