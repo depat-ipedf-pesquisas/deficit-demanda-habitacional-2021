@@ -582,27 +582,20 @@ pdad_2021 <- pdad_2021 %>%
 
 
 
-## Para a análise do déficit habitacional, foi realizado uma auditoria sobre os
-## domicílios que tinham a resposta de percepção do morador como 
-## 3 e 4 (madeira e outros, respectivamente), para a pergunta B07 (material 
-## predominante do revestimento das paredes). 
+## Para caracterização do subcomponente "Domicílios Improvisados",
+## foi realizada verificação detalhada dos domicílios da amostra da PDAD 2021,
+## apoiada por análises geoespaciais e visuais por meio do *Google Street View*,
+## resultando na variável `B01_déficit`, disponível no site do instituto
 
-## Para tal auditoria, os domicílios foram espacializados e as fotografias dessas
-## residencias analisadas, deixando de ser uma resposta de percepção
-## do próprio morador para uma resposta de averiguação.
 
-## De forma semelhante, foi realiada essa mesma pesquisa para os domicílios
-## com resposta 2 (improvisado) para a pergunta B01 (Situação do domicílio)
+## Para a caracterização dos domicílios rústicos, baseada no cruzamento das
+## respostas "alvenaria sem revestimento" (variável B07=2) aliada à presença
+## apenas de "contrapiso" (variável B08=1) ou "cimento alisado" (variável B08=2)
+## e "cobertura em telha de fibrocimento sem laje" (variável B09=4).
+## Também foi realizada verificação detalhada dos domicílios da amostra da PDAD 2021,
+## apoiada por análises geoespaciais e visuais por meio do *Google Street View*,
+## resultando na variável `B07_atualizada` disponível também no site do instituto.
 
-## Para a resposta da coluna B07, foram adotados os novos valores para madeira
-## e outros (33 e 44, respectivamente), visando não perder a informação 
-## original.
-
-## Para além disso, a coluna original B07 foi renomeada para B07_pdad
-## para se ter um arquivo das respostas de perceção, e uma nova coluna 
-## será acrescentada na base. Nesse arquivo, tem todos os domicílios, os quais
-## já têm o novo balanço, onde os domicílios de madeira para construção
-## e outros tiveram as novas codificações e para os demais a antiga codificação. 
 
 ## A nova coluna B01 é agregada à base de dados com o nome B01_edit_2 e 
 ## os domicílios após análise aparecem como "Improvisado" ou "Permanente"
