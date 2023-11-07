@@ -36,8 +36,8 @@ Os códigos permitem a reprodução dos principais resultados apresentados nos r
 
 A pesquisa sobre Déficit e Demanda Habitacional do Distrito Federal | 2021 foi realizada pela equipe da Diretoria de Estudos e Políticas Ambientais e Territoriais (DEPAT), vinculada ao IPEDF.
 
-A principal fonte de dados foi a Pesquisa Distrital por Amostra de Domicílios (PDAD - 2021), é uma pesquisa domiciliar realizada pelo Instituto de Pesquisa e Estatística do Distrito Federal (IPEDF).
+A principal fonte de dados foi a Pesquisa Distrital por Amostra de Domicílios (PDAD - 2021), que é uma pesquisa domiciliar realizada pelo Instituto de Pesquisa e Estatística do Distrito Federal.
 
-*Fonte para citação*: IPEDF Codeplan, Instituto de Pesquisa e Estatística do Distrito Federal. Déficit Habitacional do Distrito Federal 2021. Brasília, 2023.
+*Fonte para citação*: **IPEDF Codeplan**, Instituto de Pesquisa e Estatística do Distrito Federal. Déficit Habitacional do Distrito Federal 2021. Brasília, 2023.
 
 Os usos dos dados são livres, desde que citada a fonte.
