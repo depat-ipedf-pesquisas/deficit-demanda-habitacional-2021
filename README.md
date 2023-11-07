@@ -32,7 +32,7 @@ Neles, já estão organizados o acesso aos microdados da PDAD 2021 - disponibili
 Os códigos permitem a reprodução dos principais resultados apresentados nos relatórios da pesquisa disponibilizados na página oficial do Instituto, disponível [`aqui`](https://www.ipe.df.gov.br/deficit-e-demanda-habitacional-do-distrito-federal-2021/). No arquivo `renv.lock`, está a lista dos pacotes utilizados, visando garantir a estabilidade de reprodução dos códigos.
 
 
-# Créditos <img align="right" src="images/logo-colorida.jpeg" alt="ipedf" width="200">
+# Créditos <img align="right" src="images/logo-colorida-horizontal.png" alt="ipedf" width="200">
 
 A pesquisa sobre Déficit e Demanda Habitacional do Distrito Federal | 2021 foi realizada pela equipe da Diretoria de Estudos e Políticas Ambientais e Territoriais (DEPAT), vinculada ao IPEDF.
 
