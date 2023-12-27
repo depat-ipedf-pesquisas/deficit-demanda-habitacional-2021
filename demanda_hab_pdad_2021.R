@@ -750,7 +750,7 @@ tx_chefia <- amostra_mor %>%
                                          idade %in% c(40:64) ~ "idade_40_64")) %>% 
   srvyr::filter(E05==1) %>% 
   srvyr::group_by(grupo_etario) %>% 
-  srvyr::summarise(total_chefes=survey_total(vartype = "cv"))
+  srvyr::summarise(total_chefes=survey_total(vartype = c("cv", "ci")))
 
 tx_chefia <- subset(tx_chefia, !is.na(grupo_etario))
 
@@ -764,7 +764,7 @@ pop_total <- amostra_mor %>%
     )
   ) %>%
   srvyr::group_by(grupo_etario) %>%
-  srvyr::summarise(pop_total = survey_total(vartype = "cv"))
+  srvyr::summarise(pop_total = survey_total(vartype = c("cv", "ci")))
 
 pop_total <- subset(pop_total,!is.na(grupo_etario))
 
@@ -793,7 +793,7 @@ tx_chefia_idade_ra <- amostra_mor %>%
                                          idade %in% c(40:64) ~ "idade_40_64")) %>% 
   srvyr::filter(E05==1) %>% 
   srvyr::group_by(grupo_etario, RA_nome) %>% 
-  srvyr::summarise(total_chefes=survey_total(vartype = "cv"))
+  srvyr::summarise(total_chefes=survey_total(vartype = c("cv", "ci")))
 
 tx_chefia_idade_ra <- subset(tx_chefia_idade_ra, !is.na(grupo_etario))
 
@@ -802,7 +802,7 @@ pop_idade_ra <- amostra_mor %>%
                                          idade %in% c(30:39) ~ "idade_30_39",
                                          idade %in% c(40:64) ~ "idade_40_64")) %>% 
   srvyr::group_by(grupo_etario, RA_nome) %>% 
-  srvyr::summarise(pop_total=survey_total(vartype = "cv"))
+  srvyr::summarise(pop_total=survey_total(vartype = c("cv", "ci")))
 
 pop_idade_ra <- subset(pop_idade_ra, !is.na(grupo_etario))
 
@@ -837,7 +837,7 @@ demanda_idade <- amostra_mor %>%
      )
    ) %>%
    srvyr::group_by(grupo_etario) %>%
-   srvyr::summarise(demanda_ = survey_total(demanda_ind, vartype = "cv", na.rm =
+   srvyr::summarise(demanda_ = survey_total(demanda_ind, vartype = c("cv", "ci"), na.rm =
                                               TRUE))
  
  
@@ -873,7 +873,7 @@ demanda_idade_RA <- amostra_mor %>%
     )
   ) %>%
   srvyr::group_by(grupo_etario, RA_nome) %>%
-  srvyr::summarise(demanda_ = survey_total(demanda_ind, vartype = "cv", na.rm =
+  srvyr::summarise(demanda_ = survey_total(demanda_ind, vartype = c("cv", "ci"), na.rm =
                                              TRUE))
 
   # Teste para ver se é possível fazer inferência sobre os dados.
@@ -914,7 +914,7 @@ demanda_ss <- amostra_mor %>%
                                   ifelse(arranjos == 2,"Monoparental Fem",
                                          ifelse(arranjos == 7,"Outro",NA)))) %>%
   srvyr::group_by(grupo_etario, arranjo2) %>% 
-  srvyr::summarise(demanda_=survey_total(vartype = "cv", na.rm=TRUE)) %>% 
+  srvyr::summarise(demanda_=survey_total(vartype = c("cv", "ci"), na.rm=TRUE)) %>% 
   dplyr::filter(!is.na(grupo_etario))
 
 tx_chefia <- amostra_mor %>% 
@@ -927,7 +927,7 @@ tx_chefia <- amostra_mor %>%
                                          ifelse(arranjos == 7,"Outro",NA)))) %>% 
   srvyr::filter(E05==1) %>% 
   srvyr::group_by(grupo_etario) %>% 
-  srvyr::summarise(total_chefes=survey_total(vartype = "cv")) %>% 
+  srvyr::summarise(total_chefes=survey_total(vartype = c("cv", "ci"))) %>% 
   dplyr::filter(!is.na(grupo_etario))
 
 pop_total <- amostra_mor %>% 
@@ -936,14 +936,14 @@ pop_total <- amostra_mor %>%
                                          idade %in% c(30:39) ~ "idade_30_39",
                                          idade %in% c(40:64) ~ "idade_40_64")) %>% 
   srvyr::group_by(grupo_etario) %>% 
-  srvyr::summarise(pop_total=survey_total(vartype = "cv")) %>% 
+  srvyr::summarise(pop_total=survey_total(vartype = c("cv", "ci"))) %>% 
   dplyr::filter(!is.na(grupo_etario))
 
 tb_tx_chefia <- 
 demanda_ss %>% 
   inner_join(tx_chefia) %>% 
   inner_join(pop_total) %>% 
-  select(-contains("cv")) %>% 
+  select(-contains("cv"), -contains("low"), -contains("upp")) %>% 
   mutate(demanda_final = demanda_*total_chefes/pop_total) %>% 
   janitor::adorn_totals()
 
@@ -951,7 +951,7 @@ tb_demanda_geral <-
 demanda_idade %>% 
   inner_join(tx_chefia) %>% 
   inner_join(pop_total) %>% 
-  select(-contains("cv")) %>% 
+  select(-contains("cv"), -contains("low"), -contains("upp")) %>% 
   mutate(demanda_final = demanda_*total_chefes/pop_total) %>% 
   janitor::adorn_totals() 
 
@@ -984,7 +984,7 @@ tb_renda_demandante <-
     )
   ) %>%
   srvyr::group_by(grupo_etario, renda_dom) %>%
-  srvyr::summarise(demanda_ = survey_total(demanda_ind, vartype = "cv", na.rm =
+  srvyr::summarise(demanda_ = survey_total(demanda_ind, vartype = c("cv", "ci"), na.rm =
                                              TRUE)) %>%
   dplyr::filter(!is.na(grupo_etario)) %>%
   inner_join(tb_tx_chefia) %>%

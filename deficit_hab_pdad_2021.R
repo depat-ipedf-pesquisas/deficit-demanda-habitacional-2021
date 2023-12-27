@@ -709,7 +709,7 @@ habitacao_precaria_componentes_df <- amostra_dom %>%
   # Agrupar por subcomponente
   srvyr::group_by(df, domicilio) %>%
   # Calcular o total da população, com seu intervalo de confiança
-  srvyr::summarise(n = survey_total(vartype = "cv")) %>%
+  srvyr::summarise(n = survey_total(vartype = c("cv", "ci"))) %>%
   filter(!is.na(domicilio))
 
 
@@ -733,7 +733,7 @@ habitacao_precaria_df <- amostra_dom %>%
   )  %>%
   srvyr::group_by(df, habitacao) %>%
   # Calcular o total da população, com seu intervalo de confiança
-  srvyr::summarise(n = survey_total(vartype = "cv")) %>%
+  srvyr::summarise(n = survey_total(vartype = c("cv", "ci"))) %>%
   filter(!is.na(habitacao))
 
 
@@ -760,9 +760,9 @@ coabitacao_df <- amostra_dom %>%
   srvyr::group_by(df) %>%
   # Calcular os totais para cada situação
   srvyr::summarise(
-    coabit_familiar = survey_total(coabit_familiar, vartype = "cv"),
-    fam_conv        = survey_total(fam_conv, vartype = "cv"),
-    comodo          = survey_total(comodo, vartype = "cv")
+    coabit_familiar = survey_total(coabit_familiar, vartype = c("cv", "ci")),
+    fam_conv        = survey_total(fam_conv, vartype = c("cv", "ci")),
+    comodo          = survey_total(comodo, vartype = c("cv", "ci"))
   )
 
 
@@ -793,7 +793,7 @@ onus_aluguel_df <- amostra_dom %>%
   )) %>% 
   srvyr::group_by(df) %>% 
   # Calcular os totais 
-  srvyr::summarise(onus_aluguel=survey_total(onus_aluguel, vartype = "cv"))
+  srvyr::summarise(onus_aluguel=survey_total(onus_aluguel, vartype = c("cv", "ci")))
 
 
 ###########################################################################
@@ -847,7 +847,7 @@ deficit_df <- amostra_dom %>%
   ) %>%
   srvyr::group_by(df) %>%
   # Calcular o déficit habitacional
-  srvyr::summarise(deficit_habit = survey_total(deficit_habit, vartype = "cv"))
+  srvyr::summarise(deficit_habit = survey_total(deficit_habit, vartype = c("cv", "ci")))
 
 
 ###########################################################################
@@ -899,7 +899,7 @@ deficit_df_raca <- amostra_dom %>%
   ) %>%
   srvyr::group_by(df, negro_naonegro) %>%
   # Calcular o déficit habitacional
-  srvyr::summarise(deficit_habit1 = survey_total(deficit_habit, vartype = "cv")) 
+  srvyr::summarise(deficit_habit1 = survey_total(deficit_habit, vartype = c("cv", "ci"))) 
 
 
 ###########################################################################
@@ -951,7 +951,7 @@ deficit_df_sexo <- amostra_dom %>%
   ) %>%
   srvyr::group_by(df, E04) %>%
   # Calcular o déficit habitacional
-  srvyr::summarise(deficit_habit1 = survey_total(deficit_habit, vartype = "cv")) 
+  srvyr::summarise(deficit_habit1 = survey_total(deficit_habit, vartype = c("cv", "ci"))) 
 
 
 
@@ -1008,7 +1008,7 @@ deficit_por_ra <- amostra_dom %>%
   # Agrupar por RA
   srvyr::group_by(RA_nome) %>%
   # Calcular o déficit habitacional
-  srvyr::summarise(deficit_habit1 = survey_total(deficit_habit, vartype = "cv")) 
+  srvyr::summarise(deficit_habit1 = survey_total(deficit_habit, vartype = c("cv", "ci"))) 
 
 ###############################################################################
 #                       Casos Déficit por Grupos RA                               #
@@ -1062,7 +1062,7 @@ deficit_grupo_ra <- amostra_dom %>%
   # Agrupar por grupo de RA
   srvyr::group_by(df, agrup_regiao) %>%
   # Calcular o déficit habitacional
-  srvyr::summarise(deficit_habit = survey_total(deficit_habit, vartype = "cv"))
+  srvyr::summarise(deficit_habit = survey_total(deficit_habit, vartype = c("cv", "ci")))
 
 
   # Removendo tabelas não mais necessárias
